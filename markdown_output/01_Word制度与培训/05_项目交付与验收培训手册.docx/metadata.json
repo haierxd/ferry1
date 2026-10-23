@@ -1,0 +1,23 @@
+{
+  "source": "D:\\test2\\甲方资料\\01_Word制度与培训\\05_项目交付与验收培训手册.docx",
+  "source_sha256": "1cc6ef6534cd25667d87be451dd4944ba2579cce6dd613adce11080890d5cc50",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:16.962697+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": null,
+  "page_map": [],
+  "tables": 1,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "40b034cb657c23c883790d2eacb56c0bee9f824087307480961b66cbc71d0130"
+  }
+}

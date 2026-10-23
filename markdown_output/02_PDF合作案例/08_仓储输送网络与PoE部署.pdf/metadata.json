@@ -1,0 +1,39 @@
+{
+  "source": "D:\\test2\\甲方资料\\02_PDF合作案例\\08_仓储输送网络与PoE部署.pdf",
+  "source_sha256": "221173020e03a2d19b8a29262e732b56d01b54a592ed1bb2139b3ed87f7d446f",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:18.496794+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": 3,
+  "page_map": [
+    {
+      "page": 1,
+      "marker": "<!-- source_page: 1 -->",
+      "markdown_line": 1
+    },
+    {
+      "page": 2,
+      "marker": "<!-- source_page: 2 -->",
+      "markdown_line": 29
+    },
+    {
+      "page": 3,
+      "marker": "<!-- source_page: 3 -->",
+      "markdown_line": 55
+    }
+  ],
+  "tables": 3,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "a84836189ea9fd132f9e94763f5910502a3210ffb865f82dacf6774af67a4f0a"
+  }
+}

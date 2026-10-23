@@ -1,0 +1,8 @@
+[project]
+name = "personal-agent"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "agno[os,sqlite]>=3.1.7",
+    "openai>=3.35.1",
+]

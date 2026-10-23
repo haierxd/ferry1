@@ -1,0 +1,24 @@
+{
+  "name": "zhixu-ai-auth-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Express + MySQL authentication for 知序 AI",
+  "main": "server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/auth.test.js tests/config.test.js tests/conversations.test.js",
+    "test:mysql": "node --test tests/mysql.test.js tests/conversations.mysql.test.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.0"
+  }
+}

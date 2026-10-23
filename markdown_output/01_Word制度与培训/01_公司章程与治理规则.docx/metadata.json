@@ -1,0 +1,23 @@
+{
+  "source": "D:\\test2\\甲方资料\\01_Word制度与培训\\01_公司章程与治理规则.docx",
+  "source_sha256": "e30f44c2ed8b1929f2d7edf9a51ff024ac24ac6b7cbee26ed06f0e735b2e35e1",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:16.727297+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": null,
+  "page_map": [],
+  "tables": 1,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "536f7d99a0411fb18a0f93b0d7972512236730bb0795186e2349c6afbf1c2ad0"
+  }
+}

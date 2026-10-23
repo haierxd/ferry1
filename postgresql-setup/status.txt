@@ -1,0 +1,5 @@
+2026-10-21 16:09:48Z Installing PostgreSQL 17.11 to D:\PostgreSQL\17
+2026-10-21 16:11:26Z PostgreSQL installed; installing Microsoft C++ Build Tools on D drive
+2026-10-21 16:14:52Z Compiling official pgvector v0.8.7
+2026-10-21 16:20:10Z Configuring global PATH and database extensions
+2026-10-21 16:20:28Z SUCCESS: PostgreSQL, pgvector, automatic service, global PATH and knowledge_base ready

@@ -1,0 +1,23 @@
+{
+  "source": "D:\\test2\\甲方资料\\01_Word制度与培训\\09_质量管理与变更控制培训手册.docx",
+  "source_sha256": "00d3dadeeed8e5ddf9c26b6a309dcb39a69f32275b0affe0f4d66eed6cd51911",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:17.205045+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": null,
+  "page_map": [],
+  "tables": 1,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "7c22ea707170b311cbcc728967bc2e3b3b73a81f58b4e00fd1018d079ac6d93c"
+  }
+}

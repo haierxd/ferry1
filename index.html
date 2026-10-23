@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f6">
+  <title>知序 AI · 企业智能问答</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="agent-client.js" defer></script>
+  <script src="history.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="auth-screen">
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-2 2V11.5a9.5 9.5 0 0 1 19 0Z"/><path d="M7 10h10M7 14h6"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3ZM20 2v4M18 4h4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-3-2-6-2-9-1v15c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v15"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v6h5M8 13h8M8 17h5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 8.5a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4M12 16h.01"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Zm0 10 9-5M12 12 3 7m9 5v10M7.5 4.5l9 5"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14 6a5 5 0 0 0-6 6L3 17a3 3 0 0 0 4 4l6-6a5 5 0 0 0 6-7l-4 4-3-3 4-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </svg>
+  <main class="auth-layout" id="auth-pages" aria-label="账号登录与注册">
+    <aside class="auth-intro">
+      <a class="brand auth-brand" href="#login"><span class="brand-icon"><svg><use href="#i-spark"/></svg></span><span>知序 <b>AI</b><small>让企业知识，触手可及</small></span></a>
+      <div class="auth-intro-copy"><span class="eyebrow">YOUR KNOWLEDGE, CONNECTED</span><h1>连接知识，<br>开启高效工作的一天。</h1><p>从一个问题开始，让你的企业知识<br>成为随时在线的专业助手。</p></div>
+      <div class="auth-art" aria-hidden="true"><span class="auth-orbit"></span><span class="auth-spark">✦</span><div class="robot"><div class="robot-antenna"></div><div class="robot-ear left"></div><div class="robot-ear right"></div><div class="robot-head"><div class="robot-face"><i></i><i></i><span></span></div></div><div class="robot-body"><span>✦</span></div><div class="robot-arm left"></div><div class="robot-arm right"></div><div class="robot-shadow"></div></div></div>
+      <p class="auth-intro-footer"><svg class="icon"><use href="#i-shield"/></svg> 一个账号，连接你的专属知识空间</p>
+    </aside>
+    <div class="auth-form-area">
+      <div class="auth-loading" id="auth-loading" role="status">正在验证登录状态…</div>
+      <section class="auth-card" id="login-page" hidden aria-labelledby="login-title">
+        <span class="auth-kicker">WELCOME BACK</span><h2 id="login-title">欢迎回到知序 AI</h2><p class="auth-subtitle">登录账号，让知识为你所用。</p>
+        <form id="login-form">
+          <label for="login-identifier">用户名或邮箱</label><input id="login-identifier" name="identifier" autocomplete="username" placeholder="请输入用户名或邮箱" required maxlength="254">
+          <label for="login-password">密码</label><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required minlength="8" maxlength="72">
+          <p class="auth-error" id="login-error" role="alert" hidden></p>
+          <button class="auth-submit" id="login-submit" type="submit">登录工作台 <svg class="icon"><use href="#i-arrow"/></svg></button>
+        </form>
+        <button class="auth-recheck" id="auth-recheck" type="button" hidden>重新检查已保存的登录状态</button>
+        <p class="auth-switch">还没有账号？<a href="#register">创建新账号</a></p>
+        <div class="auth-security"><svg class="icon"><use href="#i-shield"/></svg><span>密码加密保存，登录状态由账号服务验证。</span></div>
+      </section>
+      <section class="auth-card" id="register-page" hidden aria-labelledby="register-title">
+        <span class="auth-kicker">START YOUR JOURNEY</span><h2 id="register-title">创建你的知序账号</h2><p class="auth-subtitle">让每一个问题，都有新的可能。</p>
+        <form id="register-form">
+          <label for="register-username">用户名</label><input id="register-username" name="username" autocomplete="username" placeholder="3–32 个文字、数字或下划线" required minlength="3" maxlength="32">
+          <label for="register-email">邮箱</label><input id="register-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required maxlength="254">
+          <label for="register-company">公司名称 <span>选填</span></label><input id="register-company" name="company" autocomplete="organization" placeholder="请输入公司名称" maxlength="120">
+          <div class="auth-password-grid"><div><label for="register-password">密码</label><input id="register-password" name="password" type="password" autocomplete="new-password" placeholder="至少 8 个字符" required minlength="8" maxlength="72"></div><div><label for="register-confirm">确认密码</label><input id="register-confirm" name="confirmPassword" type="password" autocomplete="new-password" placeholder="再次输入密码" required minlength="8" maxlength="72"></div></div>
+          <p class="auth-error" id="register-error" role="alert" hidden></p>
+          <button class="auth-submit" id="register-submit" type="submit">注册并登录 <svg class="icon"><use href="#i-arrow"/></svg></button>
+        </form>
+        <p class="auth-switch">已经有账号？<a href="#login">返回登录</a></p>
+        <div class="auth-security"><svg class="icon"><use href="#i-shield"/></svg><span>开启属于你的企业知识空间。</span></div>
+      </section>
+      <p class="auth-copyright">知序 AI · 让知识流动，让协作发生</p>
+    </div>
+  </main>
+  <a class="skip-link" href="#main">跳转到主内容</a>
+  <div class="sidebar-backdrop" id="backdrop"></div>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#qa" aria-label="知序 AI 首页"><span class="brand-icon"><svg><use href="#i-spark"/></svg></span><span>知序 <b>AI</b><small>让企业知识，触手可及</small></span></a>
+    <button class="new-chat" data-action="new"><svg class="icon"><use href="#i-plus"/></svg> 开启新对话 <span>⌘ K</span></button>
+    <div class="nav-label">工作空间</div>
+    <nav aria-label="主导航">
+      <a href="#qa" class="nav-item active" data-page="qa"><svg class="icon"><use href="#i-grid"/></svg>客户问答<span class="nav-dot"></span></a>
+      <a href="#chat" class="nav-item" data-page="chat"><svg class="icon"><use href="#i-chat"/></svg>智能体对话<span class="mini-tag">AI</span></a>
+      <button class="nav-item" data-action="knowledge"><svg class="icon"><use href="#i-book"/></svg>知识专题</button>
+      <a href="#history" class="nav-item" data-page="history"><svg class="icon"><use href="#i-clock"/></svg>历史会话</a>
+    </nav>
+    <div class="history-heading"><span class="nav-label">最近对话</span><svg class="icon"><use href="#i-clock"/></svg></div>
+    <div id="recent-list" class="recent-list"></div>
+    <div class="sidebar-bottom"><div class="secure-card"><span class="secure-icon"><svg class="icon"><use href="#i-shield"/></svg></span><strong>专属企业知识空间</strong><p>连接知识，让每一次回答更有价值</p><span class="tiny-status" id="backend-status" role="status">● 正在连接智能体服务</span></div>
+    <button class="nav-item help-btn" data-action="help"><svg class="icon"><use href="#i-help"/></svg>帮助与使用指南<svg class="icon end-icon"><use href="#i-arrow"/></svg></button>
+    <div class="profile"><span class="avatar" data-user-avatar>知</span><div><strong data-user-name>用户</strong><small data-user-company>个人空间</small></div><button class="profile-badge" data-action="logout" aria-label="退出登录">退出</button></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="打开导航" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button><span>工作空间</span><svg class="icon"><use href="#i-chev"/></svg><strong id="breadcrumb-current">客户问答</strong></div><div class="topbar-right"><span class="demo-pill"><i></i> 企业工作台</span><span class="top-divider"></span><button class="icon-button" data-action="help" aria-label="帮助"><svg class="icon"><use href="#i-help"/></svg></button><span class="avatar small" data-user-avatar>知</span></div></header>
+    <main id="main" tabindex="-1">
+      <section id="qa-page" class="page qa-page">
+        <div class="page-heading"><div><div class="eyebrow">YOUR KNOWLEDGE, CONNECTED</div><h1>客户问答<span>每一个问题，都有迹可循。</span></h1></div><button class="text-button" data-action="help">使用指南 <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+        <section class="hero" aria-label="知识搜索"><div class="hero-content"><span class="hero-kicker"><span class="live-dot"></span> 你的企业知识助手</span><h2>你好，今天有什么可以帮你？<span class="wave">✦</span></h2><p>从产品知识到服务支持，让复杂的问题，得到清晰的回答。</p><form id="search-form" class="search-form"><svg class="icon"><use href="#i-search"/></svg><input id="search-input" type="search" placeholder="搜索你的问题，例如：如何选择工业边缘网关？" aria-label="搜索常见问题" autocomplete="off"><button type="submit">搜索答案 <svg class="icon"><use href="#i-arrow"/></svg></button></form><div class="hot-topics"><span>试试这些</span><button data-search="产品选型">产品选型</button><button data-search="售后服务">售后服务</button><button data-search="交付">项目交付</button></div></div><div class="hero-visual" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="floating-spark spark-one">✦</span><span class="floating-spark spark-two">✧</span><span class="visual-note">Hi, I'm your AI</span><div class="robot"><div class="robot-antenna"></div><div class="robot-ear left"></div><div class="robot-ear right"></div><div class="robot-head"><div class="robot-face"><i></i><i></i><span></span></div></div><div class="robot-body"><span>✦</span></div><div class="robot-arm left"></div><div class="robot-arm right"></div><div class="robot-shadow"></div></div><span class="visual-caption"><svg class="icon"><use href="#i-check"/></svg> 让知识成为你的超能力</span></div></section>
+        <div class="content-columns"><div class="primary-column"><section class="panel faq-panel"><div class="section-heading"><h2><svg class="icon"><use href="#i-chat"/></svg> 常见问题</h2><span class="muted" id="faq-count">精选问题</span></div><div class="tabs" id="category-tabs" role="tablist" aria-label="问题分类"></div><div id="search-summary" class="search-summary" hidden></div><div id="faq-list" role="tabpanel" aria-live="polite"></div><div class="faq-footer"><span>还没有找到想要的答案？</span><button data-action="ask">向智能体提问 <svg class="icon"><use href="#i-arrow"/></svg></button></div></section>
+        <section class="agents-section"><div class="section-heading"><h2>让专业的事，交给专业的智能体</h2><span class="muted">选择你的专属助手</span></div><div id="agent-cards" class="agent-cards"></div></section></div>
+        <aside class="secondary-column"><section class="panel knowledge-panel" id="knowledge-panel"><div class="section-heading"><h2>探索知识专题</h2><svg class="icon"><use href="#i-book"/></svg></div><p class="panel-description">按主题探索，更快找到你需要的知识</p><div id="knowledge-list"></div><button class="all-knowledge" data-action="knowledge">查看全部专题 <svg class="icon"><use href="#i-arrow"/></svg></button></section><section class="tip-card"><span class="tip-badge"><svg class="icon"><use href="#i-spark"/></svg> 小知的使用贴士</span><h3>问题越具体，答案越贴心。</h3><p>试着补充产品型号、使用场景或遇到的问题，让沟通更高效。</p><button data-question="我需要为一条生产线选择工业边缘网关，应该先确认哪些信息？">帮我完善一个问题 <svg class="icon"><use href="#i-arrow"/></svg></button><div class="tip-deco" aria-hidden="true">✳</div></section></aside></div>
+        <footer class="page-footer"><span>知序 AI · 让知识流动，让协作发生</span><span><svg class="icon"><use href="#i-shield"/></svg> 示例内容，仅用于界面体验</span></footer>
+      </section>
+      <section id="history-page" class="page history-page" hidden aria-labelledby="history-title">
+        <header class="history-heading-row">
+          <div><span class="eyebrow">YOUR CONVERSATION ARCHIVE</span><h1 id="history-title">历史会话</h1><p>回顾每一次提问，找到有用的答案。</p></div>
+          <button type="button" class="outline-button" id="history-refresh">刷新记录</button>
+        </header>
+        <p class="history-status" id="history-status" role="status" aria-live="polite"></p>
+        <div class="history-list" id="history-list"></div>
+        <div class="history-pagination"><button type="button" class="outline-button" id="history-more" hidden>加载更多</button></div>
+        <div id="history-sentinel" class="history-sentinel" hidden aria-hidden="true"></div>
+      </section>
+      <section id="chat-page" class="page chat-page" hidden>
+        <div class="chat-layout"><div class="chat-main"><header class="chat-header"><div class="chat-agent-title"><span class="agent-icon mint"><svg class="icon"><use href="#i-spark"/></svg></span><div><h1 id="active-agent-name">企业知识助手</h1><span id="chat-connection-status"><i class="live-dot"></i> 正在连接智能体服务</span></div></div><div class="chat-tools"><button class="icon-button" data-action="reconnect" aria-label="重新检查智能体连接"><svg class="icon"><use href="#i-spark"/></svg></button><button class="icon-button" id="export-chat" aria-label="导出当前会话"><svg class="icon"><use href="#i-down"/></svg></button><button class="outline-button" data-action="new"><svg class="icon"><use href="#i-plus"/></svg> 新对话</button></div></header>
+        <div class="message-scroll" id="message-scroll"><div class="chat-welcome" id="chat-welcome"><div class="bot-avatar"><svg class="icon"><use href="#i-spark"/></svg></div><span class="eyebrow">A LITTLE KNOWLEDGE. A BIG DIFFERENCE.</span><h2>把问题交给我，把时间留给你。</h2><p id="agent-intro">你好，我是小知。产品、流程、服务支持，你关心的都可以问我。</p><div class="suggestion-grid" id="chat-suggestions"></div></div><div class="messages" id="messages" role="log" aria-label="对话消息" aria-live="polite"></div></div>
+        <div class="composer-wrap"><form class="composer" id="chat-form"><label class="sr-only" for="chat-input">向智能体提问</label><textarea id="chat-input" placeholder="向小知提问，让知识为你所用…" rows="2" maxlength="2000"></textarea><div class="composer-bottom"><span><svg class="icon"><use href="#i-spark"/></svg> DeepSeek 智能体 <span class="char-count" id="char-count">0 / 2000</span></span><button type="submit" id="send-button" aria-label="发送消息"><svg class="icon"><use href="#i-send"/></svg></button></div></form><p class="composer-hint">Enter 发送，Shift + Enter 换行 · AI 回答仅供参考，请以企业正式资料为准</p></div></div>
+        <aside class="chat-context"><span class="nav-label">选择智能体</span><div id="agent-select"></div><div class="context-divider"></div><div class="section-heading"><h3>参考资料</h3><svg class="icon"><use href="#i-book"/></svg></div><p class="panel-description">本次回答的资料来源</p><div id="chat-sources"></div><div class="context-tip"><svg class="icon"><use href="#i-shield"/></svg><p>已对接 DeepSeek 智能体。企业知识库尚未接入，回答不代表公司正式政策。</p></div></aside></div>
+      </section>
+    </main>
+  </div>
+  <dialog id="info-dialog"><div class="dialog-heading"><h2 id="dialog-title"></h2><button class="icon-button" id="close-dialog" aria-label="关闭弹窗"><svg class="icon"><use href="#i-close"/></svg></button></div><div id="dialog-content"></div></dialog>
+  <div class="toast" id="toast" role="status"></div>
+</body>
+</html>

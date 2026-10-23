@@ -1,0 +1,39 @@
+{
+  "source": "D:\\test2\\甲方资料\\02_PDF合作案例\\07_装配产线远程信号改造.pdf",
+  "source_sha256": "2b48c715646fd4ad537262fd23d4be33e28b85aff8b270f4334b59174c43d96e",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:18.382720+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": 3,
+  "page_map": [
+    {
+      "page": 1,
+      "marker": "<!-- source_page: 1 -->",
+      "markdown_line": 1
+    },
+    {
+      "page": 2,
+      "marker": "<!-- source_page: 2 -->",
+      "markdown_line": 29
+    },
+    {
+      "page": 3,
+      "marker": "<!-- source_page: 3 -->",
+      "markdown_line": 55
+    }
+  ],
+  "tables": 3,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "8994d34a41058a0af0c381248c78c02fefb8ec8db1b12fb8ac74d00830546637"
+  }
+}

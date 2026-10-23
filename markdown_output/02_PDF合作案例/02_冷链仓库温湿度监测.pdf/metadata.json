@@ -1,0 +1,39 @@
+{
+  "source": "D:\\test2\\甲方资料\\02_PDF合作案例\\02_冷链仓库温湿度监测.pdf",
+  "source_sha256": "2bfc4c622eb793be0869192aba80c83a760960b89ea89ab94e437e6735423493",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:17.690460+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": 3,
+  "page_map": [
+    {
+      "page": 1,
+      "marker": "<!-- source_page: 1 -->",
+      "markdown_line": 1
+    },
+    {
+      "page": 2,
+      "marker": "<!-- source_page: 2 -->",
+      "markdown_line": 29
+    },
+    {
+      "page": 3,
+      "marker": "<!-- source_page: 3 -->",
+      "markdown_line": 55
+    }
+  ],
+  "tables": 3,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "5bc55c9de6386556a582b8b171655f1ebcbf7215204f51527cfe297cbbd61c33"
+  }
+}

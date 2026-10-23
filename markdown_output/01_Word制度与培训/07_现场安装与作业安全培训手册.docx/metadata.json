@@ -1,0 +1,23 @@
+{
+  "source": "D:\\test2\\甲方资料\\01_Word制度与培训\\07_现场安装与作业安全培训手册.docx",
+  "source_sha256": "4c9744107e674e6299aac6c27b129b17d0ff5eaf348b5eeeb312e5a2c5b4e80e",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:17.081741+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": null,
+  "page_map": [],
+  "tables": 1,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "514d8fad73349b343a0a60c856be3022f9129e1d8ac1c787837f24e9f4082c84"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "source": "D:\\test2\\甲方资料\\01_Word制度与培训\\03_产品体系与选型培训手册.docx",
+  "source_sha256": "b4f416cc71ac798a7eea6da1aa87509dbb6cadba4ba4888d6bb5c8e4fc886b07",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:16.845427+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": null,
+  "page_map": [],
+  "tables": 1,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "d9a2d293f7829442c78b2ba5e6e70c423265f52a2ee1efc0e1f95528d666c788"
+  }
+}

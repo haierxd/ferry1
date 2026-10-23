@@ -1,0 +1,39 @@
+{
+  "source": "D:\\test2\\甲方资料\\02_PDF合作案例\\04_水泵机组无线振动监测.pdf",
+  "source_sha256": "5c0a5739e3c651b97d3272bf557dd38636b23624735dee808945eedb1dbb1c97",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:17.973081+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": 3,
+  "page_map": [
+    {
+      "page": 1,
+      "marker": "<!-- source_page: 1 -->",
+      "markdown_line": 1
+    },
+    {
+      "page": 2,
+      "marker": "<!-- source_page: 2 -->",
+      "markdown_line": 29
+    },
+    {
+      "page": 3,
+      "marker": "<!-- source_page: 3 -->",
+      "markdown_line": 55
+    }
+  ],
+  "tables": 3,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "69bf1e599455d83b9d7e8eeda2abdeec95a5ec8fa7e00117c8c417c8b76cb4e4"
+  }
+}

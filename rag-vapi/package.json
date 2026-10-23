@@ -1,0 +1,29 @@
+{
+  "name": "vapi-pgvector-mysql-rag",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20.19" },
+  "scripts": {
+    "start": "node server.js",
+    "ingest": "node scripts/ingest.js",
+    "test": "node --test",
+    "init:pg": "node scripts/init-db.js pg",
+    "init:mysql": "node scripts/init-db.js mysql",
+    "migrate:mysql": "node scripts/init-db.js mysql-existing",
+    "check:env": "node scripts/check-env.js",
+    "check:db": "node scripts/check-db.js",
+    "check:embed": "node scripts/check-embed.js",
+    "check:ingest": "node scripts/check-ingest.js",
+    "check:all": "npm run check:env && npm run check:db && npm run check:embed"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.14.0",
+    "openai": "^6.0.0",
+    "pg": "^8.16.0"
+  }
+}

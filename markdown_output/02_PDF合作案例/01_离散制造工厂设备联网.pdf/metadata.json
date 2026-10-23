@@ -1,0 +1,39 @@
+{
+  "source": "D:\\test2\\甲方资料\\02_PDF合作案例\\01_离散制造工厂设备联网.pdf",
+  "source_sha256": "80a2d07633fe795af8f919fc48ca701e4e46a2102b8ebd385bc4cb04b60731b3",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:17.564492+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": 3,
+  "page_map": [
+    {
+      "page": 1,
+      "marker": "<!-- source_page: 1 -->",
+      "markdown_line": 1
+    },
+    {
+      "page": 2,
+      "marker": "<!-- source_page: 2 -->",
+      "markdown_line": 29
+    },
+    {
+      "page": 3,
+      "marker": "<!-- source_page: 3 -->",
+      "markdown_line": 55
+    }
+  ],
+  "tables": 3,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "6031d4359b66dafeecabb4b040a76f410f781fa2bc867219d0be9aee15859ef7"
+  }
+}

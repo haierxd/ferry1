@@ -1,0 +1,56 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+
+test('全文原样读取，保留编号、换行和末尾，不依赖模型或向量召回', async t => {
+  const { readFullDocument, isFullTextRequest } = await import('../lib/full-document.js');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'rag-full-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const dir = path.join(root, '02_新员工入职培训手册.docx');
+  await mkdir(dir);
+  const original = '# 新员工入职培训手册\r\n\r\n[1] 课程一。\r\n文件名：document.md，块号：2。\r\n最后一段。\r\n';
+  await writeFile(path.join(dir, 'document.md'), original);
+  assert.equal(isFullTextRequest('请输出《新员工入职培训手册》的全文'), true);
+  assert.equal(isFullTextRequest('不要输出全文，只解释培训目标'), false);
+  assert.equal(isFullTextRequest('全文检索是什么'), false);
+  assert.equal(isFullTextRequest('《新员工入职培训手册》的全文'), true);
+  assert.equal(isFullTextRequest('新员工入职培训手册全文'), true);
+  assert.equal(isFullTextRequest('全文'), true);
+  assert.equal(isFullTextRequest('完整输出《新员工入职培训手册》'), true);
+  assert.equal(isFullTextRequest('请提供全文检索的使用方法'), false);
+  const result = await readFullDocument('请输出《新员工入职培训手册》的全文', root);
+  assert.equal(result.answer, original);
+  assert.equal(result.references[0].filename, '02_新员工入职培训手册.docx');
+  assert.equal(result.references[0].kind, 'full_document');
+  const noName = await readFullDocument('输出这篇文章全文', root);
+  assert.deepEqual(noName.references, []);
+  assert.match(noName.answer, /文档名/);
+  const outside = await readFullDocument('输出《../../.env》的全文', root);
+  assert.equal(outside.references.length, 0);
+});
+
+test('原句加“输出全篇文档”能定位真实文件，标点空格不影响匹配，重复出处不猜测', async t => {
+  const { readFullDocument, isFullTextRequest } = await import('../lib/full-document.js');
+  const root = await mkdtemp(path.join(os.tmpdir(), 'rag-full-sentence-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const dir = path.join(root, '09_外观检测相机与追溯接入.pdf');
+  await mkdir(dir);
+  const sentence = '双相机从两侧拍摄，固定光源与工装位置，算法输出由人工复核后形成最终质量判定。';
+  const original = '# 外观检测相机与追溯接入\n\n' + sentence + '\n\n最后一段。\n';
+  await writeFile(path.join(dir, 'document.md'), original);
+  const question = '提问' + sentence + ' 输出全篇文档';
+  assert.equal(isFullTextRequest(question), true);
+  const result = await readFullDocument(question, root);
+  assert.equal(result.answer, original);
+  assert.equal(result.references[0].filename, '09_外观检测相机与追溯接入.pdf');
+  const noPunctuation = await readFullDocument(sentence.replaceAll('，', ' ') + ' 输出整篇文档', root);
+  assert.equal(noPunctuation.answer, original);
+  const duplicate = path.join(root, '另一份资料');
+  await mkdir(duplicate);
+  await writeFile(path.join(duplicate, '相同句子.md'), sentence);
+  const ambiguous = await readFullDocument(question, root);
+  assert.deepEqual(ambiguous.references, []);
+  assert.match(ambiguous.answer, /多份/);
+});

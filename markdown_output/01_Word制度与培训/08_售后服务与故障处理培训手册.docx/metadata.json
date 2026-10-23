@@ -1,0 +1,23 @@
+{
+  "source": "D:\\test2\\甲方资料\\01_Word制度与培训\\08_售后服务与故障处理培训手册.docx",
+  "source_sha256": "a5c6b427a358da24f163e3fecb7e863d62b6178225a0f9dbba3551b364c4f66e",
+  "tool_version": "1.0.2",
+  "dependencies": {
+    "python-docx": "1.2.0",
+    "pdfplumber": "0.11.9"
+  },
+  "converted_at": "2026-10-21T08:09:17.140971+00:00",
+  "options": {
+    "engine": "basic",
+    "keep_pdf_headers": false
+  },
+  "status": "success",
+  "warnings": [],
+  "pages": null,
+  "page_map": [],
+  "tables": 1,
+  "images": 0,
+  "output_sha256": {
+    "document.md": "83b2437a8eda37f6ce125b2b8addda6ebfe3d02b20b29abe5c39d190bd3d2876"
+  }
+}
