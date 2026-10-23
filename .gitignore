@@ -13,8 +13,11 @@ server/node_modules/
 server/.npm-cache/
 *.log
 
-# Êý¾Ý¿â°²×°°üÓëÑ¹Ëõ°ü
+# ï¿½ï¿½ï¿½Ý¿â°²×°ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½
 postgresql-setup/*.exe
 postgresql-setup/*.msi
 postgresql-setup/*.zip
 *.zip
+postgresql-setup/machine-path-before.txt
+postgresql-setup/pgvector/
+markdown_output/
