@@ -1,0 +1,20 @@
+personal_agent/.env
+personal_agent/.env.*
+!personal_agent/.env.example
+personal_agent/.venv/
+personal_agent/data/
+.runtime/
+__pycache__/
+*.pyc
+server/.env
+server/.env.*
+!server/.env.example
+server/node_modules/
+server/.npm-cache/
+*.log
+
+# 数据库安装包与压缩包
+postgresql-setup/*.exe
+postgresql-setup/*.msi
+postgresql-setup/*.zip
+*.zip
